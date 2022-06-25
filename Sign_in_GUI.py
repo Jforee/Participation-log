@@ -32,11 +32,13 @@ window = sg.Window('Simple data entry form', layout)
 
 info_list = []
 
+# functionality of the buttons
+
 while True:
     event, values = window.read()
-    if event == sg.WIN_CLOSED or event == 'Exit':
+    if event == sg.WIN_CLOSED or event == 'Exit':  # Exit closes the window and Excel Workbook
         break
-    if event == 'Submit':
+    if event == 'Submit':  # Submit takes the data from info_list and writes to Excel sheet.
         s = info_list.append(values)
         for index, entry in enumerate(info_list):
             wk_sheet.write(index+1, 0, entry["Name"])
